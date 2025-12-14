@@ -9,11 +9,13 @@ The course is divided into 8 sessions. Each session will provide participants wi
 
 **The 8 modules**:
 
-- Session 1: Terminal, Github, and Best Practices
+- Session 1: Terminal, Git, and Github
 - Session 2: Data Wrangling and Visualization in R
 - Session 3: Introduction to Machine Learning with Python
 - Session 4: Deep Learning and Generative AI: Part 1
 - Session 5: Deep Learning and Generative AI: Part 2
 - Session 6: Advanced Optimization: Part 1
 - Session 7: Advanced Optimization: Part 2
-- Session 8: High Performance Computing
+- Session 8: High performance computing
+
+
