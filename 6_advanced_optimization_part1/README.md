@@ -2,17 +2,22 @@
 
 In this session, we will be exploring tools for solving linear optimization problems in Julia and JuMP. Julia is a high-level, high-performance dynamic programming language for technical computing. JuMP is a library that enables us to formulate and solve mathematical programs in Julia using state-of-the-art solvers. We will be using the Gurobi solver to solve linear optimimization problems. 
 
+This session consists of three parts:
+- Part 1: Introduction to Julia and tips/tricks 
+- Part 2: Introduction to JumP 
+- Part 3: Integer optimization 
+
+In this pre-assignment, we will help you install Julia, the relevant packages, and Gurobi if you don't have them installed already. If you already have the tools installed, you may skip Tasks #1 and #2 and submit the pre-assignment to Canvas, which is due on January 21st at 11:59 p.m.
+
 ## Task 1: Install Julia and packages
 
-Please download the most recent version of Julia. As of January 2026, the current stable release is v1.12.3. You can download Julia [here](https://julialang.org/downloads/). To open Julia, navigate to your applications folder and select the Julia 1.12 icon.
-You can also open it by navigating to a terminal and typing "julia".
+Please download Julia if you do not have it downloaded already. As of January 2026, the current stable release is v1.12.3. You can download Julia [here](https://julialang.org/downloads/). To open Julia, navigate to your applications folder and select the Julia 1.12 icon. You can also open it by navigating to a terminal and typing "julia".
 
 Note: You can update to the latest version of Julia through `juliaup`, the Julia version manager! `juliaup` allows you to maintain separate Julia installations.
 
 ### Julia packages
 
-We will be running a few Jupyter notebooks in this session. IJulia basically hijacks Python's Jupyter notebook, allowing us to run Julia code in line with text, math, and visualizations. You can add IJulia by running the following commands in a Julia session.
-
+We will be running a few Jupyter notebooks in this session. IJulia basically hijacks Python's Jupyter notebook, allowing us to run Julia code in line with text, math, and visualizations. You can add IJulia (if you do not have it already) by running the following commands in a Julia session.
 ```
 julia> using Pkg
 julia> Pkg.add("IJulia")
@@ -24,7 +29,7 @@ julia> ]
 ```
 You can exit the package manager by pressing delete/backspace.
 
-While you're there, please install the following packages:
+While you're there, please install the following packages if you do not have them already:
 * DataFrames
 * JuMP
 * CSV
@@ -37,7 +42,7 @@ While you're there, please install the following packages:
 
 ## Task 2: Install Gurobi
 
-Gurobi is a commercial solver with free academic licenses. Please follow these steps to get the software onto your computer.
+Gurobi is a commercial solver with free academic licenses. Please follow these steps to download and install Gurobi if you have not already. 
 
 1. Go to [Gurobi's website](https://www.gurobi.com/) and sign up for a free account.
 2. The downloads page is [here](https://www.gurobi.com/downloads/gurobi-optimizer-eula/). Accept the license agreement and download the most recent version of the Gurobi optimizer (v13.0.0). Follow the installation instructions as prompted.
