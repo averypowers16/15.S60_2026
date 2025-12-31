@@ -1,6 +1,6 @@
 # Pre-assignment 6 
 
-In this session, we will be exploring tools for solving linear optimization problems in Julia and JuMP. Julia is a high-level, high-performance dynamic programming language for technical computing. JuMP is a library that enables us to formulate and solve mathematical programs in Julia using state-of-the-art solvers. We will be using the Gurobi solver to solve linear optimimization problems. 
+In this session, we will be exploring tools for solving linear and integer optimization problems in Julia and JuMP. Julia is a high-level, high-performance dynamic programming language for technical computing. JuMP is a library that enables us to formulate and solve mathematical programs in Julia using state-of-the-art solvers. We will be using the Gurobi solver to solve linear optimimization problems. 
 
 This session consists of three parts:
 - Part 1: Introduction to Julia and tips/tricks 
