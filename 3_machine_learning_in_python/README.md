@@ -6,7 +6,7 @@ Completing the pre-assignment will ensure you have all of the software needed to
 Task 1: Install Anaconda3 with Jupyter Notebook
 Anaconda is a distribution of the Python (and R) programming language for scientific computing, that aims to simplify package management and deployment. Anaconda comes with Jupyter Notebook. The Jupyter Notebook is a web-based interactive computing platform that combines live code, equations, narrative text, visualizations and more. We will use Jupyter Notebook throughout the lecture.
 
-Please go to [Anaconda website] (https://www.anaconda.com/docs/main) and follow the instructions to install Anaconda at your local machine.
+Please go to [Anaconda website](https://www.anaconda.com/docs/main) and follow the instructions to install Anaconda at your local machine.
 
 Task 2: Run the Pre-assignment Jupyter Notebook
 Please launch Anaconda, launch the Jupyter Notebook named pre-assignment 3.ipynb and run all commands.
