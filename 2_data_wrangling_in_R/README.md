@@ -1,5 +1,5 @@
 # Preassignment 2
-As your pre-assignment, I’ll ask you to download R and install a few packages. __Please actually do this in advance as it can take a while!__ I’ll also ask you to download a few datasets that we’ll use for the main assignment. If you’re new to R I’ve also explained where you can find resources to smooth the introduction.
+As your pre-assignment, I’ll ask you to download R, install a few packages. There's no need to submit anything for this preassignment but __please actually do this in advance as it can take a while!__ I’ll also ask you to download a few datasets that we’ll use for the main assignment. If you’re new to R I’ve also explained where you can find resources to smooth the introduction.
 
 1. First follow the instructions at [this link](https://posit.co/download/rstudio-desktop/#download) in order to install R and R studio.
 2. Then install the following libraries using the `install.packages()` command
@@ -47,7 +47,7 @@ library(purrr)
    * [CMS NPI registry](https://data.cms.gov/provider-data/dataset/mj5m-pzi6)
    * [ACS 2023 Age and Sex data by zip code](https://data.census.gov/table?q=s0101&g=010XX00US$8600000)
    * Ensure you see the following files in the GitHub: listings.csv, prices_modeled.csv, transplant_centers.csv
-5. All the packages we’ll use in class are well established with solid documentation (typically available through cran) and it should be easy to find tips and cheat sheets online. For more comprehensive coverage I recommend
+5. All the packages we’ll use in class are well established with solid documentation (typically available through cran) and it should be easy to find tips and cheat sheets online. For more comprehensive coverage or if you want to be extra prepated for class I recommend
    * [R for Data Science](https://r4ds.hadley.nz/)
    * [Advanced R](https://adv-r.hadley.nz/)
 
