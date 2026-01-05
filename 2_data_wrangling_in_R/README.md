@@ -46,7 +46,7 @@ library(purrr)
    * [2020 census data on race by census tract](https://data.census.gov/table/DECENNIALCD1182020.P9?q=P9)
    * [CMS NPI registry](https://data.cms.gov/provider-data/dataset/mj5m-pzi6)
    * [ACS 2023 Age and Sex data by zip code](https://data.census.gov/table?q=s0101&g=010XX00US$8600000)
-   * Ensure you see the following files in the GitHub: listings.csv, prices_modeled.csv, transplant_codes.csv, kidpan_ctr_ids.csv
+   * Ensure you see the following files in the GitHub: listings.csv, prices_modeled.csv, transplant_centers.csv
 5. All the packages we’ll use in class are well established with solid documentation (typically available through cran) and it should be easy to find tips and cheat sheets online. For more comprehensive coverage I recommend
    * [R for Data Science](https://r4ds.hadley.nz/)
    * [Advanced R](https://adv-r.hadley.nz/)
