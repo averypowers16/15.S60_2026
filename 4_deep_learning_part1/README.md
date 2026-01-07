@@ -1,6 +1,6 @@
 # Colab Notebooks
 
-1. [Preassignment](https://colab.research.google.com/drive/1_aFqfqfNIn1vDUeYW7Cx8K0fz0TTbjYJ?usp=sharing)
+1. [Preassignment]([https://colab.research.google.com/drive/1_aFqfqfNIn1vDUeYW7Cx8K0fz0TTbjYJ?usp=sharing](https://colab.research.google.com/drive/1Bb3iY2r6QR9qTRUn22G8GABgIGiWeRbd))
 2. [Session Notebook on Fashion MNIST](https://colab.research.google.com/drive/1UJWJ3KQb15lrEcbAw-xQsqAWr0-ljOGQ?usp=sharing)
 
 # Preassignment 4
