@@ -1,4 +1,4 @@
-# Preassignment 3
+# Pre-assignment 3
 Before the first class, please complete the following tasks.
 
 Completing the pre-assignment will ensure you have all of the software needed to follow along with the session that covers the Regression and Classsification in Python Lecture.
