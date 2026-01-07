@@ -9,7 +9,7 @@ Anaconda is a distribution of the Python (and R) programming language for scient
 Please go to [Anaconda website](https://www.anaconda.com/docs/main) and follow the instructions to install Anaconda at your local machine.
 
 Task 2: Run the Pre-assignment Jupyter Notebook
-Please launch Anaconda, launch the Jupyter Notebook named pre-assignment 3.ipynb and run all commands.
+Please launch Anaconda, launch the Jupyter Notebook named [Pre-assignment 3.ipynb](https://github.com/karlkzhu/15.S60_2026/blob/main/3_machine_learning_in_python/Pre-assignment%203.ipynb) and run all commands.
 
 Task 3: Take screenshots of the outputs
 Please take screenshots after the execution of all commands. Please make sure all command outputs are visible, with emphasis on the package installation / loading and the final command.
