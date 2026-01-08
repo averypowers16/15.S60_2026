@@ -1,0 +1,246 @@
+---
+title: "15S60 2026 R Assignment Student Copy"
+author: "Your Name" 
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+#Markdown settings
+knitr::opts_chunk$set(echo = TRUE)
+
+#Clear Environment
+rm(list=ls())
+
+#Load Packages
+library(plyr)
+library(dplyr)
+library(tidyverse)
+library(ggalluvial)
+library(RColorBrewer)
+library(ggtext)
+library(stringr)
+library(readxl)
+library(leaflet)
+library(vroom)
+library(sf)
+library(data.table)
+library(htmlwidgets)
+library(broom)
+library(lubridate)
+library(ggtext)
+library(purrr)
+```
+
+## Making graphs with ggplot
+First of all a big thanks to Yuan Shi who put together most of the material in this section for last year's class. In this section you'll do some simple exploratory data analysis and then we'll focus on making graphics that look ready to share.
+
+First let's import the data we'll need
+
+```{r, results=FALSE, message=FALSE}
+# Clear the environment
+rm(list = ls())
+
+# Read in the listings and the prices_modeled datasets from git
+listings <- #Insert path
+prices_modeled <- #Insert path
+```
+
+Now lets create a column capturing for each weekday the average residual price (_i.e._ price minus LOESS trend). Then create a column capturing the remainder (_i.e._ the residual price minus its periodic component)
+
+```{r}
+#Insert code
+```
+
+Now we can visualize the trends. We have four price columns: `price_per`, `trend`, 
+`periodic`, and `remainder`. 
+
+Plot all of these as facets on the same visualization, using only the first 3000 
+observations in the dataset. Each facet should be a line plot with a line for 
+each `listing_id`. Please label your axes and facet labels clearly (_i.e._ not using variable names) and in bold, change the font to Times New Roman, and add a numbered footnote explaining how each component is calculated.
+
+```{r}
+#Insert code
+```
+Finally, let's dive a bit deeper and use k-means clustering to group listings by 
+the magnitude of their April spikes. Our hypothesis is that there are two sets of 
+listings: one that is highly impacted by the April spike, and another that is not
+impacted much. Let's look for evidence for or against this hypothesis.
+
+We'll start by considering only the prices in April. 
+
+```{r}
+#Insert code
+```
+
+We need to construct a matrix of data to use for k-means. Note that we are including only listings that have data for the entirety 
+of April. This matrix should have a variable for each date where the values are the remainders.
+
+```{r}
+#Insert code
+```
+
+Our final setup item constructs a k-means function that takes `k` as an argument,
+and initializes a dataframe holding potential `k` values between 1 and 10. We are
+going to fit 10 k-means model for each value of `k` and take the mean of the fit 
+statistics over these 10 models, which is why there are 10 rows for each value of 
+`k`. Your job will be to add model data to this dataframe, one model for each row, 
+so we can examine the fit for each potential choice of `k`.
+Create a kclust column called `kclust` in the `cluster_models` dataframe that holds 
+a k-means object for each row in the `cluster_models` dataframe. Then, extract the model summary using `broom::glance` for each model, and then convert the
+result into a "well-behaved" data frame called `cluster_performance` with no nesting.
+
+```{r}
+set.seed(1234)
+#Insert code
+```
+
+
+Compute the mean `tot.withinss` for each value of `k` and plot the results, with 
+`k` on the x-axis and the mean `tot.withinss` on the y-axis. Make sure to use Times New Roman font, and bold and center the titles. What value of `k` 
+should we use? You can put your thoughts into a comment in the code chunk below, 
+after your code for the plot.
+
+```{r}
+#Insert code
+```
+
+We really only need one clustering, so let's extract the first one with our chosen 
+value of `k`. Let's inspect the clustered series. To do this, we need to add the predictions to 
+`prices_for_clustering` and use `pivot_longer()`:
+
+```{r}
+#Insert code
+```
+
+For each cluster, visualize three series over time: mean price, mean price plus 
+one standard deviation, mean price minus one standard deviation. 
+
+The dates should be on the x axis, price should be on the y axis, and there should 
+be a facet for each cluster.
+
+Putting together all of the formatting stuff you've learned so far: clearly label all facets and axes, bold and center all titles, change font to Times New Roman, add two numbered footnotes explaining the data and clustering, label the 1st, 8th, 15th, 22nd, and 30th of April
+
+
+```{r}
+#Insert code
+```
+You're done with the assignment! But for fun, let's see where these April-spiking listings are geographically. To execute this part, you'll need to use the `leaflet` package.
+
+We've isolated the signal: users in one group have large spikes at the specific week in April; users in the other don't. Now we're ready to visualize where these listings are located in geographic space. To do so, we need to combine our cluster labels with the geographic information in the `listings` data frame. We'll use `left_join()` for this, but first we need to remove all the duplicates in `prices_clustered`.  
+
+```{r}
+cluster_lookup <- prices_clustered %>% 
+  filter(!duplicated(listing_id)) %>% 
+  select(listing_id, cluster)
+
+locations_to_plot <- listings %>% 
+  left_join(cluster_lookup, by = c('id' = 'listing_id')) %>% 
+  filter(!is.na(cluster)) %>% 
+  select(cluster, latitude, longitude)
+
+```
+
+Now we'll plot using `leaflet`, an interactive geospatial visualization library. 
+
+```{r}
+pal <- colorFactor(c("navy", "orange"), domain = c("1", "2"))
+
+leaflet(data = locations_to_plot)%>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addCircles(~longitude, ~latitude, radius = 50, color = ~pal(cluster))
+```
+
+## Interactive Maps
+In this section we'll construct a map displaying the racial makeup of the United States. In the process we'll teach you how to work with shapefiles and mapping tools in R. 
+
+First let's import the data we'll need
+
+```{r}
+#Read in Zip code shapefiles
+
+#Read in Census tract shapefiles
+  
+#Read in data on transplant centers
+
+#Read in Census data
+
+```
+Next we'll preprocess this data so we're ready to create some maps.
+```{r}
+#convert census tracts shapefiles to multipolygons and combine into one dataset
+
+```
+
+```{r}
+#add to the transplant center dataset the state the center falls in as well as a the coordinates of the center/interior point of the zipcode the center is located in
+
+```
+
+```{r}
+#Census data
+#Create a dataset where for each census tract we have the population that is Hispanic, White, Black, AIAN, Asian, NHPI, Other, and Two or more races
+
+#Now for each census tract create a new dataset that has a row for each set of 250 residents of each race
+
+```
+Now that that's done we can go ahead and create our visualization!
+
+```{r}
+#Create an icon marker from the provided image
+
+```
+
+```{r}
+#Generate points
+#For each row generate a randomly sampled point from within the corresponding census tract (this may take a few minutes)
+
+```
+
+```{r}
+#Create a map where each transplant facility is plotted at the center of its corresponding zip code and indicated using the transplant icon from github. When the user clicks on the marker they should see a pop up with the transplant centers code and name. Plot a small dot for each group of 250 individuals of the same race within a census tract randomly distributed throughout that tract. Color each circle by race. Save the map as an html file.
+
+#Insert code
+```
+
+## Working with large datasets
+You'll often hear that R is significantly slower than Python. While I won't try to convince you to move all your workflows to R it's actually not nearly as slow as people sometimes allege. It just requires a slightly different approach. In my opinion I think it's worth the time to learn how to speed R up so that you can use some of the great visualization tools we've been learning about even for large scale applications. You've already seen how to use tools like `map()` and `pmap()` from the purrr package in the previous section. Now we'll learn about the data.table package which provides an alternative to the typical dataframe which can function more efficiently for large datasets. As an example we'll use publicly available data from the Center for Medicare and Medicaid Services to understand the prevalence of maternal health deserts in the United States.
+
+First read in the National Registry of Practioners first as a DataFrame using `read.csv()` and then as a data.table using `fread()`. Please report the difference the run time for each of these operations. You'll notice that `fread()` performs significantly faster.
+
+```{r}
+#Insert code
+```
+
+Inspect the first 10 rows of the dataset and note the level of observation. Now create two lists the first consisting of the NPIs of all practioners who are midwives and the second consisting of the NPIs who are OB/GYNs based on primary or secondary specialty. For at least one filtering operation report the difference in time required for each of the two data formats.
+```{r}
+#Insert code
+```
+Now we're ready to count the number of midwives and OB/GYNs available in each zip code
+```{r}
+#Insert code
+```
+
+Count unique practitioners by zip code. Report the runtime for the grouping operation using each data structure
+```{r}
+#Extract the 5 digit zip code
+```
+
+```{r}
+#Insert code
+```
+
+Now we use the ACS data to determine the number of practioners of each type per 100 female individuals between 15 and 44 (child bearing age according to the US census)
+
+```{r}
+#Insert code
+```
+Let's aggregate up to the three digit zip code level
+```{r}
+#Insert code
+```
+
+Then we can report the top 5 and bottom 5 three digit zips
+```{r}
+#Insert code
+```
