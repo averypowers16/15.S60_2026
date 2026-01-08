@@ -1,0 +1,216 @@
+---
+title: "15S60 2026 R Hints"
+author: ""
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+#Markdown settings
+knitr::opts_chunk$set(echo = TRUE)
+
+#Clear Environment
+rm(list=ls())
+
+#Load Packages
+library(plyr)
+library(dplyr)
+library(tidyverse)
+library(RColorBrewer)
+library(ggtext)
+library(stringr)
+library(readxl)
+library(leaflet)
+library(vroom)
+library(sf)
+library(data.table)
+library(htmlwidgets)
+library(broom)
+library(lubridate)
+library(ggtext)
+library(purrr)
+```
+
+```{r}
+#Zip code shapefiles
+zips<- st_read() # insert path to folder
+
+#Census tract shapefiles
+file_names<- #list paths to each folder
+tracts<-map(file_names, function(x) ) #loop through paths and import files
+
+#Data on transplant centers
+transplant_center<- #trim zip codes and dedup
+
+#Census data
+census_data<-vroom() #it'll be faster than read csv
+
+```
+Next we'll preprocess this data so we're ready to create some maps.
+```{r}
+#Census tracts
+tracts<-map(tracts,function(x) st_cast(x, "MULTIPOLYGON"))
+tracts<-rbindlist(tracts)
+```
+
+```{r}
+#Transplant center data
+#the zip code data has features INTPTLAT20 and INTPTLON20 which are the coordinates of the centroid, for each center record these coordinates
+#Also extract the centers state (the first two characters of the name)
+```
+
+```{r}
+#Census data
+census_data<- census_data %>%
+  mutate(across(contains("P9"),~as.numeric(.x)))%>%
+  dplyr::rename(Hispanic=P9_002N,
+                White=P9_005N,
+                Black=P9_006N,
+                AIAN=P9_007N,
+                Asian=P9_008N,
+                NHPI=P9_009N,
+                Other=P9_010N,
+                TwoMore = P9_011N)%>%
+  select(GEO_ID, NAME,Hispanic,White,Black,AIAN,Asian,NHPI,Other,TwoMore)
+
+census_data<-census_data %>%
+  mutate(GEOID=)%>% #clean GEO_ID
+  select(-GEO_ID,-NAME)%>%
+  mutate()%>% #round population/250
+  pivot_longer()%>% #pivot
+  uncount(obs)%>%
+  group_by(GEOID)%>%
+  mutate(id=row_number())
+
+```
+Now that that's done we can go ahead and create our visualization!
+
+```{r}
+#Create an icon marker from the provided image
+transplant_icon <- makeIcon(,iconWidth = 35, iconHeight = 35) #path to icon on git
+```
+
+```{r}
+#Generate points
+n_gen<-#number of points to generate for each geoid
+polys<- #isolate just geometries
+
+#This takes about 3 minutes at 100s
+points<- #st_sample() the correct number of points from the polygons
+
+plot_data<-cbind(census_data%>%group_by(GEOID)%>%arrange(GEOID),st_coordinates(points%>%pull(geometry)))
+
+plot_data<- #clean up variable and value names
+```
+
+```{r}
+#Map
+pal <- colorFactor(
+  palette = c('red', 'blue', 'green', 'purple', 'orange','yellow','dodgerblue','gray'),
+  domain = plot_data$Race
+)
+
+
+m<-leaflet(options=leafletOptions(preferCanvas = TRUE))%>%
+  addProviderTiles("CartoDB.Positron")%>%
+  addScaleBar()%>%
+  setView(lat=37.0902,lng=-95.7129, zoom=4)%>%
+  addLegend()%>% #specify legend
+  addLayersControl(overlayGroups = c("Facilities","Race Distribution"))%>%
+  addMarkers() %>% #add facility markers and create popup labels with facility name
+  addCircleMarkers() #plot sampled points to show population race
+
+saveWidget(m, )
+```
+
+## Working with large datasets
+You'll often hear that R is significantly slower than Python. While I won't try to convince you to move all your workflows to R it's actually not nearly as slow as people sometimes allege. It just requires a slightly different approach. In my opinion I think it's worth the time to learn how to speed R up so that you can use some of the great visualization tools we've been learning about even for large scale applications. You've already seen how to use tools like `map()` and `pmap()` from the purrr package in the previous section. Now we'll learn about the data.table package which provides an alternative to the typical dataframe which can function more efficiently for large datasets. As an example we'll use publicly available data from the Center for Medicare and Medicaid Services to understand the prevalence of maternal health deserts in the United States.
+
+First read in the National Registry of Practioners first as a DataFrame using `read.csv()` and then as a data.table using `fread()`. Please report the difference the run time for each of these operations. You'll notice that `fread()` performs significantly faster.
+
+```{r}
+nat_reg<- read.csv("/PATH/DAC_NationalDownloadableFile.csv")
+nat_reg_dt<- fread("/PATH/DAC_NationalDownloadableFile.csv", showProgress = FALSE)
+
+
+base_metrics <- system.time(
+  read.csv("PATH/DAC_NationalDownloadableFile.csv")
+)
+dt_metrics <- system.time(
+  data.table::fread("PATH/DAC_NationalDownloadableFile.csv", showProgress = FALSE)
+)
+
+print(paste0("Using read.csv():"))
+print(base_metrics)
+
+print(paste0("Using fread():"))
+print(dt_metrics)
+```
+
+Inspect the first 10 rows of the dataset and note the level of observation. Now create two lists the first consisting of the NPIs of all practioners who are midwives and the second consisting of the NPIs who are OB/GYNs based on primary or secondary specialty. For at least one filtering operation report the difference in time required for each of the two data formats.
+```{r}
+nat_reg%>%pull(pri_spec)%>%unique()
+```
+Now we're ready to count the number of midwives and OB/GYNs available in each zip code
+```{r}
+print("Using a DataFrame")
+system.time(nat_reg%>%filter(pri_spec=="CERTIFIED NURSE MIDWIFE (CNM)")%>%pull(NPI)%>%unique())
+print("Using a data.table")
+system.time(unique(nat_reg_dt[pri_spec=="CERTIFIED NURSE MIDWIFE (CNM)",NPI]))
+
+mw_pri<- unique(nat_reg_dt[pri_spec=="CERTIFIED NURSE MIDWIFE (CNM)",NPI])
+mw_sec<- unique(nat_reg_dt[grepl("CERTIFIED NURSE MIDWIFE (CNM)",nat_reg_dt$sec_spec_all),NPI])
+
+obgyn_pri<- unique(nat_reg_dt[pri_spec=="OBSTETRICS/GYNECOLOGY",NPI])
+obgyn_sec<- unique(nat_reg_dt[grepl("OBSTETRICS/GYNECOLOGY",nat_reg_dt$sec_spec_all),NPI])
+
+mw_npi<-unique(c(mw_pri, mw_sec))
+obgyn_npi<- unique(c(obgyn_pri, obgyn_sec))
+```
+```{r}
+nat_reg<-nat_reg%>%mutate(zip5=str_sub(ZIP.Code,1,5))
+nat_reg_dt<-nat_reg_dt[,zip5:=str_sub(`ZIP Code`,1,5)]
+```
+
+```{r}
+print("Using a DataFrame")
+system.time(nat_reg%>% filter(NPI %in% obgyn_npi)%>%group_by(NPI,zip5)%>%slice_head()%>%group_by(zip5)%>%count())
+print("Using a data.table")
+system.time(nat_reg_dt[NPI %in% obgyn_npi, .SD[1], by=.(NPI,zip5)][,.N,by=.(zip5)])
+
+obgyn_count=nat_reg_dt[NPI %in% obgyn_npi, .SD[1], by=.(NPI,zip5)][,.N,by=.(zip5)]
+
+mw_count=nat_reg_dt[NPI %in% mw_npi, .SD[1], by=.(NPI,zip5)][,.N,by=.(zip5)]
+```
+Now we use the ACS data to determine the number of practioners of each type per 100 female individuals between 15 and 44 (child bearing age according to the US census)
+
+```{r}
+acs_data<-vroom("/PATH/ACSST5Y2023/ACSST5Y2023.S0101-Data.csv")
+
+f_pop<- acs_data[-1,]%>%mutate(zip5=str_sub(NAME,7,-1),S0101_C05_024M=as.numeric(S0101_C05_024M))%>%
+  dplyr::rename(denom=S0101_C05_024M)%>%
+  select(zip5,denom)
+  
+mw_count<- mw_count%>%left_join(f_pop, by="zip5")%>%mutate(freq=100*N/denom)
+obgyn_count<- obgyn_count%>%left_join(f_pop, by="zip5")%>%mutate(freq=100*N/denom)
+```
+Let's aggregate up to the three digit zip code level
+```{r}
+mw_count<-mw_count%>%mutate(zip3=substr(zip5,1,3))%>%group_by(zip3)%>%summarise(N=sum(N),denom=sum(denom))%>%mutate(freq=100*N/denom)
+
+obgyn_count<-obgyn_count%>%mutate(zip3=substr(zip5,1,3))%>%group_by(zip3)%>%summarise(N=sum(N),denom=sum(denom))%>%mutate(freq=100*N/denom)
+```
+
+Then we can report the top 5 and bottom 5 three digit zips
+```{r}
+print("Highest concentration of midwives:")
+mw_count%>%arrange(freq)%>%head(5)%>%pull(zip3)
+print("Lowest concentration of midwives:")
+mw_count%>%arrange(freq)%>%tail(5)%>%pull(zip3)
+
+print("Highest concentration of OB/GYNs:")
+obgyn_count%>%arrange(freq)%>%head(5)%>%pull(zip3)
+print("Lowest concentration of OB/GYNs:")
+obgyn_count%>%arrange(freq)%>%tail(5)%>%pull(zip3)
+```
+
