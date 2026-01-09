@@ -1,7 +1,5 @@
 # Colab Notebooks
-
-1. [Preassignment](https://colab.research.google.com/drive/1Bb3iY2r6QR9qTRUn22G8GABgIGiWeRbd?usp=sharing)
-2. [Session Notebook on Fashion MNIST](https://colab.research.google.com/drive/1UJWJ3KQb15lrEcbAw-xQsqAWr0-ljOGQ?usp=sharing)
+(https://colab.research.google.com/drive/1-7OCbIdBKMTdFrynAHp46bbL6JAjD3V5?usp=sharing)
 
 # Preassignment 4
 
@@ -9,13 +7,13 @@ As preassignment for Session 4, we'll make sure we can open and execute Tensorfl
 
 Google Colab is a user interface to execute Python code. It is very similar to Jupyter Notebook, except that it is online and runs on GPUs, for free!
 
-Please go to [this link](https://colab.research.google.com/drive/1Bb3iY2r6QR9qTRUn22G8GABgIGiWeRbd?usp=sharing) and make a copy of this repository to your Google drive. For that, please follow the instructions carefully.
+Please go to [this link](https://colab.research.google.com/drive/1-7OCbIdBKMTdFrynAHp46bbL6JAjD3V5?usp=sharing) and make a copy of this repository to your Google drive. 
 
-Then check you can execute cells as instructed, and upload a screenshot to Canvas of the requested cells.
+Then check you can execute the 1. installation cell (first cell of the notebook) and the 2. data loading cell (first cell under subsection “Data Preparation" further down). The colab notebook is also your assignment so I won't ask for any submissions for pre-assignment.
 
-Extra Resources: If you want to learn about the basics of neural nets and how they work (e.g. backpropagation etc.), check out the Intro to DL + Computer Vision textbook on https://visionbook.mit.edu/; https://www.3blue1brown.com/topics/neural-networks for beautifully animated videos; https://github.com/udlbook/udlbook/tree/main/Notebooks for an educational repo with a big notebook tree organized by chapter (cf. textbook “Understanding Deep Learning").
+The lecture will focus more on big picture overview rather than technical details, so if you want to learn ahead of time about the basics of neural nets more in detail (e.g. backpropagation etc.), check out the Foundations of Computer Vision textbook on https://visionbook.mit.edu/; https://github.com/udlbook/udlbook/tree/main/Notebooks for an educational repo with a big notebook tree organized by chapter (cf. textbook “Understanding Deep Learning"). For a more entertaining experience, I'd strongly recommend 3Blue1Brown's Deep Learning Chapters 1-6 (https://www.3blue1brown.com/topics/neural-networks) which have beautifully animated videos on YouTube -- they helped me understand several things in a much more intuitive way!
 
-See you on Thursday 9AM!
+See you on Thursday 9AM~
 
 ### Questions?
 
