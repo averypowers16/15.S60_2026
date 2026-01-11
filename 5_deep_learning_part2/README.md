@@ -3,8 +3,11 @@
 Feel free to reach out to me (natashap@mit.edu) if you have any questions. Have fun!
 
 **Submit to Canvas**: 
+
     (1) A screenshot of the chat window after you've completed Step 3. 
+
     (2) A screenshot of the final output from the Ollama notebook section in Step 4.
+    
     (3) A screenshot of the final output from the Hugging Face notebook section in Step 5.
 
 ## Instructions
