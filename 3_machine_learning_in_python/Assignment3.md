@@ -7,7 +7,7 @@ Create and submit (in Canvas) a notebook that has the following structure:
 
 1) Start with some Data Preprocessing and Exploratory Data Analysis (EDA). Explain whatyour EDA plots show.
 
-2) Run 2-3 models taught in class and report their performance (in sample and out ofsample), using hyperparameter tuning.
+2) Run 2-3 models taught in class and report their performance (in sample and out of sample), using hyperparameter tuning.
 
 3) Create a weighted ensemble using some of the models
 
