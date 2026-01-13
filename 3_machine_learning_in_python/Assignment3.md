@@ -11,7 +11,7 @@ Create and submit (in Canvas) a notebook that has the following structure:
 
 3) Create a weighted ensemble using some of the models
 
-In your final submission, you should have both the notebook you created (as a PDF file), as well as the screenshot of the Kaggle leaderboard.
+In your final submission, you should have both the notebook you created (as a PDF file).
 Some suggestions for Kaggle:
 
 1. Regression Problem: [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
