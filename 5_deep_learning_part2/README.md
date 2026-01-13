@@ -4,15 +4,21 @@ Feel free to reach out to me (natashap@mit.edu) if you have any questions. Have 
 
 **Submit to Canvas**: 
 
-    (1) A screenshot of the chat window after you've completed Step 3. 
+A single PDF containing the following:
 
-    (2) A screenshot of the final output from the Ollama notebook section in Step 4.
-    
-    (3) A screenshot of the final output from the Hugging Face notebook section in Step 5.
+    (1) A screenshot of the final output from the Ollama section in the pre-assignemnt notebook in Step 4.
+
+    (2) A screenshot of the final output from the Hugging Face section in the pre-assignment notebook in Step 5.
+
+    (3) A screenshot of the final output from the Wikipedia API section in the pre-assignment notebook in Step 6.
+
+**OPTIONAL**: It is good practice to create a virtual environment for each project you work on. A virtual environment isolates that project’s Python packages from the rest of your system, which helps avoid version conflicts and makes your setup easier to reproduce. You can activate the environment when you are working on this project and deactivate it when you are done.
+
+Before running any of the pre-assignment code (which will install packages from requirements.txt), you can create a virtual environment, if you're comfortable/ familiar with how to do so: https://python.land/virtual-environments/virtualenv. 
 
 ## Instructions
 
-1. Ollama is an open-source platform for using locally installed LLMs and interacting with these models programatically. Download the Ollama installation package for your operating system here: https://ollama.com/download. Follow the on-screen instructions to install Ollama on your local machine. 
+1. Ollama is an open-source platform for using locally installed LLMs and interacting with these models programmatically. Download the Ollama installation package for your operating system here: https://ollama.com/download. Follow the on-screen instructions to install Ollama on your local machine. 
 
 2. The following user interface should pop up immediately after installation. But no worries if it doesn't - you can open the Ollama app by finding it in your applications folder (macOS) or from the Start menu (Windows): 
 
@@ -29,5 +35,19 @@ This is a nice chat-window interface for interacting with your downloaded AI mod
 Each pre-trained model on Hugging Face should have an accompanying "model card" - which is a document that contains information on the model's architecture, intended use, training data & procedure, performance metrics, limitations, etc. 
 
 If you're curious, here's the model card for bert-base-uncased: https://huggingface.co/google-bert/bert-base-uncased 
+
+6. Wikipedia API as a free, reliable way for our AI agents to look up information. The API lets our code programmatically search Wikipedia and retrieve clean text from pages. To enable this, open the .env file in this GitHub repository and enter your MIT email address in the YOUR_EMAIL field. Then, run the Wikipedia API section of the pre-assignment Jupyter notebook (Pre-assignment 5.ipynb). If everything is working, the notebook should successfully connect to Wikipedia and print the introduction of the Boston page.
+
+**OPTIONAL**: If you would like to experiment with commercial, cloud-hosted models, you can create an OpenAI account and generate an API key at https://platform.openai.com/account/api-keys. If you place this key in the .env file for this project, the code will be able to call OpenAI’s hosted models through the OpenAI API. But please note that using OpenAI’s API is NOT needed for this workshop. All demos work with the open-source and locally hosted models we access via Hugging Face and Ollama. If you do choose to use OpenAI’s models, be aware that they are billed per token based on the specific model you select. You can review the current pricing here: https://platform.openai.com/docs/pricing. 
+
+
+## A Note on CPU vs GPU (CUDA) Support
+
+PyTorch can run on either your CPU or, if available, an NVIDIA GPU using CUDA. GPUs are designed for parallel computation, which makes them much faster than CPUs for the large matrix operations used in deep learning. CUDA is NVIDIA’s programming platform for GPUs that allows software like PyTorch to run computations directly on the graphics card. 
+
+All of the code in this project works on CPU-only machines (i.e. - all of your laptops), but training and large-model inference in some of the demos will run significantly more slowly without a GPU.
+
+**OPTIONAL**: If you already know how to access to a compatible NVIDIA GPU, you can install a CUDA-enabled version of PyTorch using "requirements-gpu.txt" (but you may have to change the CUDA version) in place of the default "requirements-cpu.txt" file. Otherwise, follow the default CPU-based installation in the pre-assignment notebook and everything will still run correctly. 
+
 
 

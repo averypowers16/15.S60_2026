@@ -1,12 +1,26 @@
 
-ipykernel==6.19.2
-
 ollama
 langchain_ollama
 langchain_core
 
-torch
-transformers
+openai
+
+transformers>=4.40
+datasets>=2.18
+evaluate>=0.4
+accelerate>=0.30
+peft>=0.10
+trl>=0.9
+huggingface_hub[hf_xet]
+bitsandbytes>=0.39
+
+scikit-learn
+
+langgraph
+requests
+pydantic
+beautifulsoup4
+python-dotenv
 
 
 
