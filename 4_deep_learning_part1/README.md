@@ -3,7 +3,7 @@
 
 # Preassignment 4
 
-As preassignment for Session 4, we'll make sure we can open and execute Tensorflow in Google Colab.
+As preassignment for Session 4, we'll make sure we can open and execute Pytorch in Google Colab.
 
 Google Colab is a user interface to execute Python code. It is very similar to Jupyter Notebook, except that it is online and runs on GPUs, for free!
 
