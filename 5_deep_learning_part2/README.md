@@ -2,7 +2,7 @@
 
 Feel free to reach out to me (natashap@mit.edu) if you have any questions. Have fun!
 
-**Submit to Canvas**: 
+<ins>**Submit to Canvas**</ins> 
 
 A single PDF containing the following:
 
@@ -15,6 +15,7 @@ A single PDF containing the following:
 **OPTIONAL**: It is good practice to create a virtual environment for each project you work on. A virtual environment isolates that project’s Python packages from the rest of your system, which helps avoid version conflicts and makes your setup easier to reproduce. You can activate the environment when you are working on this project and deactivate it when you are done.
 
 Before running any of the pre-assignment code (which will install packages from requirements.txt), you can create a virtual environment, if you're comfortable/ familiar with how to do so: https://python.land/virtual-environments/virtualenv. 
+
 
 ## Instructions
 
