@@ -1,13 +1,12 @@
 # Colab Notebooks
-(https://colab.research.google.com/drive/1-7OCbIdBKMTdFrynAHp46bbL6JAjD3V5?usp=sharing)
-
+https://colab.research.google.com/drive/1L-Dsz_QmqTg4xozJnoUhsYbZN0kKxY0_?usp=sharing
 # Preassignment 4
 
 As preassignment for Session 4, we'll make sure we can open and execute Pytorch in Google Colab.
 
 Google Colab is a user interface to execute Python code. It is very similar to Jupyter Notebook, except that it is online and runs on GPUs, for free!
 
-Please go to [this link](https://colab.research.google.com/drive/1-7OCbIdBKMTdFrynAHp46bbL6JAjD3V5?usp=sharing) and make a copy of this repository to your Google drive. 
+Please go to [this link](https://colab.research.google.com/drive/1L-Dsz_QmqTg4xozJnoUhsYbZN0kKxY0_?usp=sharing) and make a copy of this repository to your Google drive. 
 
 Then check you can execute the 1. installation cell (first cell of the notebook) and the 2. data loading cell (first cell under subsection “Data Preparation" further down). The colab notebook is also your assignment so I won't ask for any submissions for pre-assignment.
 
