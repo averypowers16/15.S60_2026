@@ -1,6 +1,6 @@
 # Assignment 4
 
-Homework for Module 4 on Intro to Deep Learning is to complete the 5 questions (5 effectively remaining) of the [Image Classification notebook] https://colab.research.google.com/drive/1L-Dsz_QmqTg4xozJnoUhsYbZN0kKxY0_?usp=sharing. 
+Homework for Module 4 on Intro to Deep Learning is to complete the 5 questions (5 effectively remaining) of the [Image Classification notebook] https://colab.research.google.com/drive/1L-Dsz_QmqTg4xozJnoUhsYbZN0kKxY0_?usp=sharing and is due Thursday Jan 22 midnight. 
 I have completed what we saw on class for Q1 and Q2 -- in Q2 you just need to fill out what's missing for the evaluate() function. 
 
 For the backward function in the Linear module, I added some further docstring explaining what it is computing (as I realised I gave a confusing explanation in class :) ) and I also filled out the missing function for the CrossEntropy module.
