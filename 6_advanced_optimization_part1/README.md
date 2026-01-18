@@ -4,7 +4,7 @@ In this session, we will be exploring tools for solving linear and integer optim
 
 This session consists of three parts:
 - Part 1: Introduction to Julia and tips/tricks 
-- Part 2: Introduction to JumP 
+- Part 2: Introduction to JumP and mixed-integer problems
 - Part 3: Integer optimization 
 
 In this pre-assignment, we will help you install Julia, the relevant packages, and Gurobi if you don't have them installed already. If you already have the tools installed, you may skip Tasks #1 and #2 and submit the pre-assignment to Canvas, which is due on January 21st at 11:59 p.m.
