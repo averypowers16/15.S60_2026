@@ -1,0 +1,12 @@
+id,L,population_data_path,facility_data_path,B
+1,20,ma_population.csv,facilities.csv,3.0e6
+2,20,ma_population.csv,facilities.csv,3.2e6
+3,20,ma_population.csv,facilities.csv,3.4e6
+4,20,ma_population.csv,facilities.csv,3.6e6
+5,20,ma_population.csv,facilities.csv,3.8e6
+6,20,ma_population.csv,facilities.csv,4.0e6
+7,20,ma_population.csv,facilities.csv,4.2e6
+8,20,ma_population.csv,facilities.csv,4.4e6
+9,20,ma_population.csv,facilities.csv,4.6e6
+10,20,ma_population.csv,facilities.csv,4.8e6
+11,20,ma_population.csv,facilities.csv,5.0e6
