@@ -1,4 +1,4 @@
-# Pre-assignment 5
+# Pre-assignment 5 (Before Session)
 
 Feel free to reach out to me (natashap@mit.edu) if you have any questions. Have fun!
 
@@ -49,6 +49,22 @@ PyTorch can run on either your CPU or, if available, an NVIDIA GPU using CUDA. G
 All of the code in this project works on CPU-only machines (i.e. - all of your laptops), but training and large-model inference in some of the demos will run significantly more slowly without a GPU.
 
 **OPTIONAL**: If you already know how to access to a compatible NVIDIA GPU, you can install a CUDA-enabled version of PyTorch using "requirements-gpu.txt" (but you may have to change the CUDA version) in place of the default "requirements-cpu.txt" file. Otherwise, follow the default CPU-based installation in the pre-assignment notebook and everything will still run correctly. 
+
+
+# Homework Assignment 5 (After Session)
+
+Be sure to use GPU for the Google Colab assignment. For the actual training loop - I don't expect it to take more than 20 mins for the currently recommended training arguments, number of training samples, and number of epochs. Reach out to me (natashap@mit.ed) if it exceeds 30 minutes.
+
+<ins>**Submit to Canvas**</ins> 
+
+    (1) [Estimated Time to Complete: 10 mins] The Jupyter Notebook "4- Prompt Engineering.ipynb" after running all of the code cells with output visible
+
+    (2) [Estimated Time to Complete: 2-3 Hours] A completed copy of the following Google Colab Notebook: https://colab.research.google.com/drive/1VEVr_6A7VwbxhLezR804ID-z4V8qpkVh?usp=sharing 
+
+
+
+
+
 
 
 
