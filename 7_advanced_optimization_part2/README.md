@@ -18,4 +18,4 @@
      
 3.  To confirm proper installation and licensing of all packages, run the preassignment notebook.  If everything is working properly, all cells should run without generating any output.
 
-If you have any issue during the installation phase, please contact `brunm@mit.edu`. **Please note that although it is a pre-assignment, you do not need to submit anything on Canvas and completion will not be graded.**
+If you have any issue during the installation phase, please contact `karlzhu@mit.edu` or `brunm@mit.edu`. **Please note that although it is a pre-assignment, you do not need to submit anything on Canvas and completion will not be graded.**
