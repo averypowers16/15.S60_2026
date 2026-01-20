@@ -53,7 +53,7 @@ All of the code in this project works on CPU-only machines (i.e. - all of your l
 
 # Homework Assignment 5 (After Session)
 
-Be sure to use GPU for the Google Colab assignment. For the actual training loop - I don't expect it to take more than 20 mins for the currently recommended training arguments, number of training samples, and number of epochs. Reach out to me (natashap@mit.ed) if it exceeds 30 minutes.
+Be sure to use GPU for the Google Colab assignment. For the actual training loop - I don't expect it to take more than 20 mins for the currently recommended training arguments, number of training samples, and number of epochs. Reach out to me (natashap@mit.edu) if it exceeds 30 minutes.
 
 <ins>**Submit to Canvas**</ins> 
 
