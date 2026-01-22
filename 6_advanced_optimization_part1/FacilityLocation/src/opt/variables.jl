@@ -3,7 +3,7 @@
 """
 function add_variables!(m::Model, FLD::FacilityLocationData)
 
-    # demand to facility assignment 
+    # demand to facility assignment
     @variable(m, x[FLD.F, FLD.C] >= 0)
 
     # facility selection
