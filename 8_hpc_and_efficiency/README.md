@@ -18,7 +18,7 @@ This should open a browser window with a terminal that says you are connected as
 Once you've logged into Engaging, run the following commands *in this order* in the terminal (don't worry if you don't understand what we're doing here - we'll discuss during the session):
 
 1. ```ssh eofe7.mit.edu``` (Note: You only need to run this command if you are connected from the browser terminal in https://engaging-ood.mit.edu and your terminal shows you are connected as `[yourusername@orcd-login003]` instead of `[yourusername@eofe7 ~]$`).
-2. ```srun --pty --partition=sched_any_quicktest --cpus-per-task=1 --mem=2G bash```  (Note: this may take a few minutes depending on how busy the cluster is)
+2. ```srun --pty --partition=mit_quicktest --cpus-per-task=8 --mem=8G bash```  (Note: this may take a few minutes depending on how busy the cluster is)
 3. 2. Once you have been allocated resources, your terminal will display `[username@node029 ~]$` or some other node number. We can now load some software modules.
 4. ```module load julia/1.7.3```
 5. ```module load gurobi/8.1.1```
@@ -58,7 +58,7 @@ If you're using **Windows**, there are many options for access. The simplest is 
 
 Once you've logged into Engaging, you will be on the login node, so your terminal will say `[username@eosloan ~]$`. Check to ensure you can run the following commands (don't worry if you don't understand what we're doing here - we'll discuss during the session):
 
-1. ```srun --pty --partition=sched_any_quicktest --cpus-per-task=1 --mem=2G bash```  (Note: it may take a while before you are allocated resources depending on how busy the cluster is)
+1. ```srun --pty --partition=mit_quicktest --cpus-per-task=8 --mem=8G bash```  (Note: it may take a while before you are allocated resources depending on how busy the cluster is)
 2. Once you have been allocated resources, your terminal will display `[username@node029 ~]$` or some other node number. We can now load some software modules.
 3. ```module load julia/1.7.3```
 4. ```module load gurobi/8.1.1```
@@ -101,7 +101,7 @@ If you're using **Windows**, there are many options for access. The simplest is 
 Once you've logged into SuperCloud, you will be on a login node, so the terminal will display something like `[username@login-4 ~]$`. Check to ensure you can run the following commands to load software and packages:
 
 1. ```module load julia/1.7.3```
-2. ```module load gurobi/gurobi-811```
+2. ```module load gurobi/gurobi-1102```
 3. ```julia``` (At this point, a Julia session will open)
 4. Enter the following commands to Julia to load the packages we need, then exit the Julia window (this may take some time): 
 

@@ -3,7 +3,7 @@
 #Set up computing environment
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=2G
-#SBATCH --partition=sched_any_quicktest
+#SBATCH --partition=mit_quicktest
 #SBATCH --time=0-00:10
 #SBATCH -o outputlog.out
 
