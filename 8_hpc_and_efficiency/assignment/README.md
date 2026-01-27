@@ -14,5 +14,5 @@ The parameters of five networks are given in the file `experiments.csv`.
 4. Take a screenshot of the contents of your batchscript `batchscript.sh` and of your `outputs` folder after the job completes and submit on Canvas.
 
 ### Questions
-If you have any questions, email George at geomar@mit.edu. Due Saturday, Jan 31 at midnight! 
+If you have any questions, email George at geomar@mit.edu. Due Sunday, Feb 1 at midnight! 
 
