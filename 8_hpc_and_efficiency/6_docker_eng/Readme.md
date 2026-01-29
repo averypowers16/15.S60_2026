@@ -69,6 +69,7 @@ First run `nvidia-smi` to check your GPU resources. Then go to the folder where 
 python3 vllm_test.py
 ```
 This script compares the speed of using the vLLM wrapper to do vLLM inference, against using the transformer/hugginface API.
+
 ---
 
 ## Author Information
