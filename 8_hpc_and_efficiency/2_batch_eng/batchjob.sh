@@ -7,8 +7,12 @@
 #SBATCH --time=0-00:10
 #SBATCH -o outputlog.out
 
-#Load software
+# Often needed for eofe/eosloan, because the command `modules`
+# is not recognized otherwise
+source ~/.bashrc
+
+# Load software
 module load julia/1.7.3
 
-#Run the script as usual
+# Run the script as usual
 julia shortestpath.jl

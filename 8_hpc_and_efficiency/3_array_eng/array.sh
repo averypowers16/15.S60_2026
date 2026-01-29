@@ -8,6 +8,10 @@
 #SBATCH -o run_\%a.out
 #SBATCH -e run_\%a.err
 
+# Often needed for eofe/eosloan, because the command `modules`
+# is not recognized otherwise
+source ~/.bashrc
+
 #Load software
 module load julia/1.7.3
 
